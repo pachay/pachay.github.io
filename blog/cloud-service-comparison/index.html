@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Нагрузочное тестирование облачного сервера, Microsoft Azure, Google Cloud, AWS, сравнение">
+    <meta name="author" content="">
+
+    <title>Сравнение Microsoft Azure, Google Cloud и AWS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-8150968-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter44709022 = new Ya.Metrika({
+                    id:44709022,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/44709022" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Меню <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">Все статьи</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/contact/">Автор</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('/img/cloud1.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Выбираем облачный сервис по стоимости и производительности</h1>
+                        <h2 class="subheading">Microsoft Azure, Google Cloud и AWS</h2>
+                        <span class="meta">20 Мая, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>Несмотря на то, что с точки зрения маркетинга и "набора фич" облачные сервисы отличаются практически никак, выбор облачного сервиса по одному лишь описанию производителя непростая задача. Сервисы сильно отличаются по архитектуре, а следовательно по перфомансу.</p>
+
+                    <table class="table">
+                        <tr>
+                            <th>Сервис и размер</th>
+                            <th>CPU</th>
+                            <th>RAM, GiB</th>
+                            <th>Стоимость в час</th>
+                            <th>Стоимость в месяц</th>
+                        </tr>
+                        <tr>
+                            <td>AWS m4.xlarge</td>
+                            <td>4*</td>
+                            <td>15</td>
+                            <td>$ 0.238</td>
+                            <td>$ 174.22</td>
+                        </tr>
+                        <tr>
+                            <td>Azure DS3v2 promo</td>
+                            <td>4</td>
+                            <td>14</td>
+                            <td>$ 0.222</td>
+                            <td>$ 162.06</td>
+                        </tr>
+                        <tr>
+                            <td>Google n1-standard-4</td>
+                            <td>4*</td>
+                            <td>16</td>
+                            <td>$ 0.146</td>
+                            <td>$ 106.90</td>
+                        </tr>
+                    </table>
+
+                    <p>* vCPU</p>
+
+                    <p>Стоимость взята для европейского региона, операционна система Linux.</p>
+
+                    <h2 class="section-heading">Методика тестирования</h2>
+
+                    <p>В <a target="_blank" href="http://magneta.ai">Magneta.ai</a> мы работаем с WebSocket используя Python / Tornado. Поэтому я буду оценивать производиельность сервера с помощью простого WebSocket приложения. Репозиторий с тестом <a target="_blank" href="https://github.com/pachay/loadtest">https://github.com/pachay/loadtest</a>.</p>
+
+                    <h2 class="section-heading">Результаты</h2>
+
+                    <table class="table">
+                        <tr>
+                            <th>Сервис и размер</th>
+                            <th>Очки</th>
+                            <th>Стоимость месяца за одно очко</th>
+                        </tr>
+                        <tr>
+                            <td>AWS m4.xlarge</td>
+                            <td>1177</td>
+                            <td>$ 0.133</td>
+                        </tr>
+                        <tr>
+                            <td>Azure DS3v2 promo</td>
+                            <td>1417</td>
+                            <td>$ 0.114</td>
+                        </tr>
+                        <tr>
+                            <td>Google n1-standard-4</td>
+                            <td>1243</td>
+                            <td>$ 0.086</td>
+                        </tr>
+                    </table>
+
+                    <p>Стоимость месяца за одно очко = Стоимость месяца / Количество очков.</p>
+
+                    <img src="/img/chart-score.png" class="img-responsive">
+
+                    <p>За счет честных CPU Azure получила больше очков. Виртульные машины от Microsoft быстрее справляются с WebSocket тестом.</p>
+
+                    <img src="/img/chart-price.png" class="img-responsive">
+   
+                    <p>Несмотря на то, что Google Cloud медленнее, стоимость одного очка перфоманса у Google меньше. Соответственно, развернув чат сервер в Google Cloud, мы заплатим меньше денег при той же нагрузке.</p>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pachay-ru.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                     
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/pachay">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/pachay">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/pachay">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    <script src="/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
+
